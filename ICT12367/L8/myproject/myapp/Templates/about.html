@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>หน้าแรกของเว็บไซต์</title>
+{% endblock %}
+
+{% block content %}
+
+<style>
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 150px);
+    gap: 15px;
+    justify-content: center;
+}
+
+.grid-item {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 2px solid #ddd;
+}
+
+.grid-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+/* hover effect */
+.grid-item:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+}
+
+.grid-item:hover img {
+    transform: scale(1.1);
+}
+</style>
+
+<div class="container mt-5">
+
+<div class="grid-container">
+
+<div class="grid-item">
+<img src="https://www.spu.ac.th/wp-content/uploads/2024/07/20210622224036.png">
+</div>
+
+<div class="grid-item">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjQzvR30iX3vMl8PGPe4xS_-4h6StfJ_6mXQ&s">
+</div>
+
+<div class="grid-item">
+<img src="https://s.isanook.com/ca/0/ud/185/925085/logo_spu.jpg?ip/resize/w850/q80/jpg">
+</div>
+
+<div class="grid-item">
+<img src="https://www.spu.ac.th/wp-content/uploads/2025/11/MKT-2025_11_663_Banner-69-%E0%B8%97%E0%B8%B8%E0%B8%99%E0%B8%95%E0%B8%B1%E0%B8%A7%E0%B8%88%E0%B8%A3%E0%B8%B4%E0%B8%87_Dec_Web-Mobile-Web-Scholarship-600-x-600-px.webp">
+</div>
+
+<div class="grid-item">
+<img src="https://www.spu.ac.th/students/wp-content/uploads/2024/06/Screenshot-2567-06-13-at-15.32.15.png">
+</div>
+
+<div class="grid-item">
+<img src="https://www.spu.ac.th/wp-content/smush-webp/2025/12/JOB-MKT-2025_10_613_Banner-SPU-U-%E0%B8%99%E0%B8%B5%E0%B9%89%E0%B8%A1%E0%B8%B5%E0%B8%AD%E0%B8%B0%E0%B9%84%E0%B8%A3_350x220px-1.png.webp">
+</div>
+
+<div class="grid-item">
+<img src="https://www.spu.ac.th/spulife/wp-content/uploads/2022/04/277661902_5232834836755638_72610734147818833_n-768x768.jpg">
+</div>
+
+<div class="grid-item">
+<img src="https://p16-lemon8-sign-sg.tiktokcdn.com/tos-alisg-v-a3e477-sg/o8IzvzACvECJABBqeakP9sIg4i2qeRxAzQiEB6~tplv-sdweummd6v-text-logo-v1:QHByaWd3YWFuX3NpYW0=:q75.jpeg?lk3s=c7f08e79&source=lemon8_seo&x-expires=1775671200&x-signature=W6BOnzuXvUSiO551b2Jdmbxb8gU%3D">
+</div>
+
+<div class="grid-item">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQImfvZuiYqR-UeOxPBB_jTNMroyn83SriMQ&s">
+</div>
+
+</div>
+</div>
+
+{% endblock %}
+
