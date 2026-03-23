@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>หน้าแรก</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+body { background-color: #f8f9fa; }
+
+.banner {
+    background: url('https://images.unsplash.com/photo-1505740420928-5e560c06d30e') no-repeat center;
+    background-size: cover;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* ปุ่มแก้ไข (เหลืองแบบในรูป) */
+.btn-edit {
+    background-color: #d70471;
+    color: black;
+    border: none;
+}
+.btn-edit:hover {
+    background-color: #c124cf;
+}
+
+/* ปุ่มลบ (แดง) */
+.btn-delete {
+    background-color: #f26e02;
+    color: white;
+    border: none;
+}
+.btn-delete:hover {
+    background-color: #bb2d3b;
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🔥 Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="/">ICT12367 SPU</a>
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="/">หน้าแรก</a></li>
+            <li class="nav-item"><a class="nav-link" href="/form/">ลงทะเบียน</a></li>
+            <li class="nav-item"><a class="nav-link" href="/about/">เกี่ยวกับเรา</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- 🔥 Banner -->
+<div class="banner">
+    ยินดีต้อนรับสู่เว็บไซต์ของรายวิชา ICT12367
+</div>
+
+<div class="container mt-4">
+
+<h3 class="text-primary">ยินดีต้อนรับเข้าสู่ประชากร</h3>
+
+<table class="table table-striped table-hover mt-3">
+    <thead class="table-dark">
+        <tr>
+            <th>รหัส</th>
+            <th>ชื่อ</th>
+            <th>อายุ</th>
+            <th>แก้ไข</th>
+            <th>ลบ</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for p in all_person %}
+        <tr>
+            <td>{{ p.id }}</td>
+            <td>{{ p.name }}</td>
+            <td>{{ p.age }}</td>
+
+            <!-- ปุ่มแก้ไข -->
+            <td>
+                <a href="#" class="btn btn-edit btn-sm">แก้ไข</a>
+            </td>
+
+            <!-- ปุ่มลบ -->
+            <td>
+                <a href="#" class="btn btn-delete btn-sm">ลบ</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+</div>
+
+</body>
+</html>
