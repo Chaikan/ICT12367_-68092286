@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>หน้าแรก</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+body { background-color: #f8f9fa; }
+
+.banner {
+    background: url('https://images.unsplash.com/photo-1505740420928-5e560c06d30e') no-repeat center;
+    background-size: cover;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* ปุ่มแก้ไข (เหลืองแบบในรูป) */
+.btn-edit {
+    background-color: #d70471;
+    color: black;
+    border: none;
+}
+.btn-edit:hover {
+    background-color: #c124cf;
+}
+
+/* ปุ่มลบ (แดง) */
+.btn-delete {
+    background-color: #f26e02;
+    color: white;
+    border: none;
+}
+.btn-delete:hover {
+    background-color: #bb2d3b;
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🔥 Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="/">ICT12367 SPU</a>
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="/">หน้าแรก</a></li>
+            <li class="nav-item"><a class="nav-link" href="/form/">ลงทะเบียน</a></li>
+            <li class="nav-item"><a class="nav-link" href="/about/">เกี่ยวกับเรา</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- 🔥 Banner -->
+<div class="banner">
+    ยินดีต้อนรับสู่เว็บไซต์ของรายวิชา ICT12367
+</div>
+
+<div class="container mt-4">
+
+<h3 class="text-primary">ยินดีต้อนรับเข้าสู่ประชากร</h3>
+
+ <div class="row mb-3 justify-content-end">
+    <div class="col-md-4">
+        <form method="GET" class="d-flex">
+            <input class="form-control me-2" 
+                   type="search" 
+                   name="q" 
+                   placeholder="ค้นหาชื่อหรืออายุ..." 
+                   value="{{ request.GET.q }}">
+            
+            <button class="btn btn-outline-primary me-2" type="submit">ค้นหา</button>
+            
+            <a href="/" class="btn btn-outline-secondary">ล้าง</a>
+        </form>
+    </div>
+</div>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>ชื่อ</th>
+            <th>อายุ</th>
+            <th>วันที่บันทึก</th>
+            <th>การจัดการ</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for person in all_person %}
+    <tr>
+        <th scope="row">{{ person.id }}</th>
+        <td>{{ person.name }}</td>
+        <td>{{ person.age }}</td>
+        <td>{{ person.created_at|date:"d/m/Y" }}</td>
+        <td>
+            <!-- ปุ่มแก้ไข -->
+            <a href="/edit/{{ person.id }}/" class="btn btn-edit btn-sm">แก้ไข</a>
+
+            <!-- ปุ่มลบ -->
+            <a href="/delete/{{ person.id }}/" 
+               class="btn btn-delete btn-sm"
+               onclick="return confirm('คุณต้องการลบข้อมูลนี้จริงหรือไม่?');">
+               ลบ
+            </a>
+        </td>
+    </tr>
+
+    {% empty %}
+    <tr>
+        <td colspan="5" class="text-center text-danger">
+            ❌ ไม่พบข้อมูล
+        </td>
+    </tr>
+    {% endfor %}
+</tbody>
+</table>
+
+</div>
+
+</body>
+</html>

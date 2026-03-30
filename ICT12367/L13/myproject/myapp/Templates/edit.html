@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>แก้ไขข้อมูล</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    
+    <input type="text" name="name" value="{{ person.name }}" class="form-control mb-2">
+    <input type="number" name="age" value="{{ person.age }}" class="form-control mb-2">
+
+    <button type="submit" class="btn btn-success">บันทึก</button>
+</form>
+
+{% endblock %}
